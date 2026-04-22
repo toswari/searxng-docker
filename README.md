@@ -192,6 +192,27 @@ Check the logs:
 docker-compose logs
 ```
 
+### Docker Desktop doesn't show port mapping
+
+If Docker Desktop shows the container but doesn't display the port mapping in the UI:
+
+1. **Verify the container is running correctly:**
+   ```bash
+   docker ps --filter "name=searxng"
+   ```
+   You should see: `0.0.0.0:8082->8080/tcp`
+
+2. **Test the connection:**
+   ```bash
+   curl http://localhost:8082/
+   ```
+
+3. **Refresh Docker Desktop:**
+   - Click the refresh button or press `Cmd+R`
+   - Or quit and reopen Docker Desktop
+
+This is a known Docker Desktop UI caching issue - the container works correctly even if the ports aren't displayed.
+
 ### Port already in use
 
 If port 8082 is already in use, modify the port mapping in `docker-compose.yml`:
