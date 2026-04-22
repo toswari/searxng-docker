@@ -86,6 +86,45 @@ This repository includes helper scripts for querying the API:
 python query_searxng.py "your search query"
 ```
 
+## OpenClaw Skill
+
+This repository includes an [OpenClaw skill](https://github.com/modelcontextprotocol/servers) for searching the web via SearXNG.
+
+### Installing the Skill
+
+```bash
+./install-openclaw-skill.sh
+```
+
+This will install the `searxng-search` skill to `~/.openclaw/skills/searxng-search/`.
+
+### Skill Structure
+
+```
+openclaw-skill/
+├── SKILL.md                          # Skill definition and documentation
+└── scripts/
+    ├── searxng-search.sh             # Search and output to stdout
+    └── searxng-search-save.sh        # Search and save results to file
+```
+
+### Using the Skill Scripts
+
+```bash
+# Search and output to stdout
+~/.openclaw/skills/searxng-search/scripts/searxng-search.sh "docker compose"
+
+# Search with custom result count
+~/.openclaw/skills/searxng-search/scripts/searxng-search.sh "AI news" 20
+
+# Search and save to file
+~/.openclaw/skills/searxng-search/scripts/searxng-search-save.sh "OpenAI" results.json
+
+# Format output with clickable URLs
+~/.openclaw/skills/searxng-search/scripts/searxng-search.sh "query" | \
+  jq -r '.results[:10] | .[] | "\(.title)\n<\(.url)>\n\(.content | split("\n")[0])\n---"'
+```
+
 ## Configuration
 
 ### Environment Variables
