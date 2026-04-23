@@ -1,29 +1,44 @@
 services:
+  # SearXNG metasearch engine
   searxng:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.searxng
     container_name: searxng
-    ports:
-      - "8082:8080"   # SearXNG web interface
-    volumes:
-      - ./searxng:/etc/searxng
-    environment:
-      - SEARXNG_BASE_URL=http://localhost:8082/
-      - SEARXNG_HOSTNAME=localhost
     restart: unless-stopped
-    cap_drop:
-      - ALL
-    cap_add:
-      - CHOWN
-      - SETGID
-      - SETUID
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./searxng/settings.yml:/etc/searxng/settings.yml:ro
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8082
+    networks:
+      - searxng-network
     healthcheck:
-      test: ["CMD-SHELL", "wget -q -O- http://localhost:8080/ || exit 1"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/healthz"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 10s
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "1m"
-        max-file: "1"
+
+  # MCP Server for SearXNG
+  mcp-searxng:
+    build:
+      context: .
+      dockerfile: Dockerfile.mcp
+    container_name: mcp-searxng
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - SEARXNG_BASE_URL=http://searxng:8080
+      - SEARXNG_DEFAULT_RESULTS=10
+      - SEARXNG_TIMEOUT=10
+    depends_on:
+      searxng:
+        condition: service_healthy
+    networks:
+      - searxng-network
+
+networks:
+  searxng-network:
+    driver: bridge

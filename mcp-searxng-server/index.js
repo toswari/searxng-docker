@@ -4,21 +4,25 @@
  * 
  * This server provides tools and resources for searching the web using SearXNG,
  * a privacy-respecting metasearch engine.
+ * 
+ * Runs as an HTTP server with SSE transport for Docker containerization.
  */
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
   ListResourcesRequestSchema,
   ReadResourceRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
+import express from 'express';
 
 // Configuration
-const SEARXNG_BASE_URL = process.env.SEARXNG_BASE_URL || 'http://localhost:8082';
+const SEARXNG_BASE_URL = process.env.SEARXNG_BASE_URL || 'http://searxng:8080';
 const DEFAULT_RESULTS = parseInt(process.env.SEARXNG_DEFAULT_RESULTS) || 10;
 const DEFAULT_TIMEOUT = parseInt(process.env.SEARXNG_TIMEOUT) || 10;
+const PORT = parseInt(process.env.PORT) || 3000;
 
 /**
  * Perform a search request to SearXNG
@@ -471,12 +475,57 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
   }
 });
 
+// Create Express app for HTTP/SSE transport
+const app = express();
+app.use(express.json());
+
+// Store active SSE transports
+const transports = new Map();
+
+// SSE endpoint for MCP clients
+app.get('/sse', async (req, res) => {
+  console.log('New SSE connection from:', req.ip);
+  
+  const transport = new SSEServerTransport('/messages', res);
+  const sessionId = transport.sessionId;
+  
+  transports.set(sessionId, transport);
+  
+  res.on('close', () => {
+    transports.delete(sessionId);
+    console.log('SSE connection closed:', sessionId);
+  });
+  
+  await server.connect(transport);
+});
+
+// Messages endpoint for MCP clients
+app.post('/messages', async (req, res) => {
+  const sessionId = req.query.sessionId;
+  
+  if (!sessionId || !transports.has(sessionId)) {
+    return res.status(400).json({ error: 'Invalid session ID' });
+  }
+  
+  const transport = transports.get(sessionId);
+  await transport.handlePostMessage(req, res);
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 // Start the server
 async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error('MCP SearXNG Server running on stdio');
+  console.error(`MCP SearXNG Server starting on port ${PORT}`);
   console.error(`SearXNG Base URL: ${SEARXNG_BASE_URL}`);
+  
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`MCP SearXNG Server running on http://0.0.0.0:${PORT}`);
+    console.log(`SSE endpoint: http://localhost:${PORT}/sse`);
+    console.log(`Health check: http://localhost:${PORT}/health`);
+  });
 }
 
 main().catch((error) => {

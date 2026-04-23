@@ -1,0 +1,25 @@
+# MCP SearXNG Server Dockerfile
+# HTTP-based MCP server with SSE transport for containerized deployment
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY mcp-searxng-server/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy server code
+COPY mcp-searxng-server/ ./
+
+# Expose port for HTTP server
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/health || exit 1
+
+# Run the server
+CMD ["node", "index.js"]
