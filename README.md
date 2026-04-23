@@ -89,7 +89,20 @@ python query_searxng.py "your search query"
 
 This repository includes an MCP (Model Context Protocol) server that allows AI agents to search the web using SearXNG.
 
-### Installing the MCP Server
+### Option 1: Docker-based MCP Server (Recommended)
+
+The MCP server is now integrated into the Docker image. When you run the container, both SearXNG and the MCP server start automatically.
+
+```bash
+# Build and start with MCP server included
+docker-compose up -d --build
+```
+
+The MCP server runs inside the container and is accessible via stdio transport for Claude Desktop integration.
+
+### Option 2: Standalone Installation (for Claude Desktop)
+
+For use with Claude Desktop, install the MCP server locally:
 
 ```bash
 ./mcp-searxng-server/install-mcp-server.sh

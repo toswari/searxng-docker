@@ -1,8 +1,24 @@
 FROM searxng/searxng:latest
 
-# searXNG supports JSON output via the /search?format=json endpoint
-# No additional packages needed - use built-in tools
+# Install Node.js for MCP server
+RUN apk add --no-cache nodejs npm
 
-EXPOSE 8080
+# Create MCP server directory
+RUN mkdir -p /opt/mcp-searxng
 
-CMD ["/sbin/tini", "--", "python", "-m", "searxng"]
+# Copy MCP server files
+COPY mcp-searxng-server/package.json /opt/mcp-searxng/
+COPY mcp-searxng-server/index.js /opt/mcp-searxng/
+
+# Install MCP server dependencies
+WORKDIR /opt/mcp-searxng
+RUN npm install --production
+
+# Copy startup script
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+EXPOSE 8080 8081
+
+# Use custom entrypoint that starts both SearXNG and MCP server
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
