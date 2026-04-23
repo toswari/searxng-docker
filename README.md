@@ -88,6 +88,51 @@ This repository includes helper scripts for querying the API:
 python query_searxng.py "your search query"
 ```
 
+## Testing
+
+This repository includes test scripts for validating the SearXNG and MCP server installations.
+
+### SearXNG Search Tests
+
+Test the SearXNG search functionality with various queries:
+
+```bash
+# Run from outside Docker (connects to exposed port)
+./mcp-searxng-server/test-searxng.sh
+
+# Custom host/port
+SEARXNG_HOST=localhost SEARXNG_PORT=8082 ./mcp-searxng-server/test-searxng.sh
+```
+
+**Tests included:**
+- Basic text search
+- News category search
+- Image category search
+- JSON API response
+- Engine-specific search
+- Video category search
+- Empty query handling
+- Special characters handling
+
+### MCP Server Tests
+
+Test the MCP server health and endpoints:
+
+```bash
+# Run from outside Docker (connects to exposed port)
+./mcp-searxng-server/test-mcp.sh
+
+# Custom host/port
+MCP_HOST=localhost MCP_PORT=3002 ./mcp-searxng-server/test-mcp.sh
+```
+
+**Tests included:**
+- Health endpoint check
+- SSE endpoint connection
+- MCP resources availability
+- MCP tools availability
+- Error handling
+
 ## MCP Server for AI Agents
 
 This repository includes an MCP (Model Context Protocol) server that allows AI agents to search the web using SearXNG.
