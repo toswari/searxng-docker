@@ -28,7 +28,7 @@ services:
     container_name: mcp-searxng
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3002:3000"
     environment:
       - SEARXNG_BASE_URL=http://searxng:8080
       - SEARXNG_DEFAULT_RESULTS=10
