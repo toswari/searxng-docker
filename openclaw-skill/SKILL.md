@@ -3,7 +3,62 @@ name: searxng-search
 description: "Search the web using a local SearXNG instance running on port 8082. Returns JSON results for web queries."
 ---
 
-# SearXNG Search Skill
+# SearXNG Search Skill for OpenClaw
+
+Search the web using your local SearXNG container with MCP server integration.
+
+## OpenClaw Configuration
+
+To use this skill with OpenClaw, add the following to your OpenClaw configuration:
+
+```yaml
+# ~/.openclaw/config.yaml or your project's openclaw.yaml
+skills:
+  - name: searxng-search
+    path: ~/.openclaw/skills/searxng-search
+    enabled: true
+    config:
+      searxng_url: http://localhost:8082
+      default_results: 10
+      timeout: 10
+```
+
+## MCP Server Integration
+
+This skill works alongside the MCP server for enhanced functionality:
+
+### Option 1: Using OpenClaw Skill (this skill)
+
+```bash
+# Install the skill
+./install-openclaw-skill.sh
+
+# Use in OpenClaw workflows
+openclaw run searxng-search --query "your search query"
+```
+
+### Option 2: Using MCP Server directly
+
+The MCP server provides additional tools that can be used with OpenClaw:
+
+```yaml
+# ~/.openclaw/config.yaml
+mcp:
+  servers:
+    searxng:
+      command: node
+      args:
+        - /path/to/mcp-searxng-server/index.js
+      env:
+        SEARXNG_BASE_URL: http://localhost:8082
+```
+
+### Using Both Together
+
+For best results, use both the skill and MCP server:
+
+1. **Skill** - For simple web searches triggered by OpenClaw workflows
+2. **MCP Server** - For AI agent interactions via Claude Desktop or other MCP clients
 
 Search the web using your local SearXNG container.
 
@@ -12,6 +67,49 @@ Search the web using your local SearXNG container.
 - SearXNG container running on http://localhost:8082
 - Docker container: `searxng` (started via `~/searxng-docker/docker-compose.yml`)
 - `jq` installed for JSON processing
+- OpenClaw installed and configured
+
+## Installation
+
+### Step 1: Start SearXNG Container
+
+```bash
+cd ~/searxng-docker
+docker compose up -d
+```
+
+### Step 2: Install the OpenClaw Skill
+
+```bash
+./install-openclaw-skill.sh
+```
+
+This will:
+1. Create the skill directory at `~/.openclaw/skills/searxng-search/`
+2. Copy SKILL.md and scripts
+3. Make scripts executable
+
+### Step 3: Verify Installation
+
+```bash
+# Check skill is installed
+ls ~/.openclaw/skills/searxng-search/
+
+# Test the script
+~/.openclaw/skills/searxng-search/scripts/searxng-search.sh "test query"
+```
+
+### Step 4: Configure OpenClaw (Optional)
+
+Add to your `~/.openclaw/config.yaml`:
+
+```yaml
+skills:
+  searxng-search:
+    default_results: 10
+    timeout: 10
+    searxng_url: http://localhost:8082
+```
 
 ## Scripts
 
