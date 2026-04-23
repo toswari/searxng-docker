@@ -4,14 +4,11 @@ services:
     container_name: searxng
     ports:
       - "8082:8080"   # SearXNG web interface
-      - "8083:8081"   # MCP server stdio (for external access if needed)
     volumes:
       - ./searxng:/etc/searxng
-      - ./mcp-searxng:/opt/mcp-searxng
     environment:
       - SEARXNG_BASE_URL=http://localhost:8082/
       - SEARXNG_HOSTNAME=localhost
-      - SEARXNG_MCP_URL=http://localhost:8080/
     restart: unless-stopped
     cap_drop:
       - ALL

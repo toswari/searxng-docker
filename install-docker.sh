@@ -145,7 +145,8 @@ fi
 if [ -n "$CLAUDE_CONFIG_DIR" ]; then
     mkdir -p "$CLAUDE_CONFIG_DIR"
     
-    MCP_SERVER_PATH="$(cd "$(dirname "$0")/mcp-searxng-server" && pwd)"
+    SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+    MCP_SERVER_PATH="$SCRIPT_DIR/mcp-searxng-server"
     SEARXNG_URL="http://localhost:8082"
     
     cat > "$CLAUDE_CONFIG_DIR/claude_desktop_config.json" << EOF

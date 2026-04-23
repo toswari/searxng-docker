@@ -19,52 +19,46 @@ search:
 ui:
   default_theme: simple
 
-# Engine configuration - disable problematic engines
+# Engine configuration - override defaults to disable problematic engines
+# By setting engine to null or removing the engine file reference, we avoid loading errors
 engines:
-  # Working engines with rate limiting
+  # Working engines
   - name: google
     engine: google
     shortcut: go
-    disabled: false
     time_between_searches: 2.0
 
   - name: bing
     engine: bing
     shortcut: bi
-    disabled: false
     time_between_searches: 2.0
 
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
-    disabled: false
     time_between_searches: 2.0
 
   - name: brave
     engine: brave
     shortcut: brave
-    disabled: false
     time_between_searches: 5.0
 
   - name: wikipedia
     engine: wikipedia
     shortcut: wp
-    disabled: false
 
   - name: github
     engine: github
     shortcut: gh
-    disabled: false
 
   - name: arxiv
     engine: arxiv
     shortcut: arx
-    disabled: false
 
-  # Disabled engines due to errors/rate limiting
-  - name: stackoverflow
-    disabled: true
+  # Override problematic engines to use a simple disabled config
   - name: ahmia
+    disabled: true
+  - name: stackoverflow
     disabled: true
   - name: torch
     disabled: true
