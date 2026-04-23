@@ -9,9 +9,12 @@ This setup runs SearXNG in a Docker container with pre-configured search engines
 
 | Container Port | Host Port | Description |
 |----------------|-----------|-------------|
-| 8080           | 8082      | Web interface and API |
+| 8080           | 8082      | SearXNG web interface and API |
+| 3000           | 3002      | MCP server for AI agents |
 
 **Access the web interface at:** `http://localhost:8082`
+
+**MCP server endpoint:** `http://localhost:3002/sse`
 
 ## Quick Start
 
@@ -91,14 +94,14 @@ This repository includes an MCP (Model Context Protocol) server that allows AI a
 
 ### Option 1: Docker-based MCP Server (Recommended)
 
-The MCP server is now integrated into the Docker image. When you run the container, both SearXNG and the MCP server start automatically.
+The MCP server runs as a separate container alongside SearXNG. When you run docker-compose, both services start automatically.
 
 ```bash
-# Build and start with MCP server included
+# Build and start both services
 docker-compose up -d --build
 ```
 
-The MCP server runs inside the container and is accessible via stdio transport for Claude Desktop integration.
+The MCP server is accessible via HTTP/SSE transport at `http://localhost:3002/sse`.
 
 ### Option 2: Standalone Installation (for Claude Desktop)
 
@@ -169,9 +172,29 @@ mcp-searxng-server/
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `SEARXNG_BASE_URL` | SearXNG server URL | `http://localhost:8082` |
+| `SEARXNG_BASE_URL` | SearXNG server URL (internal) | `http://searxng:8080` |
 | `SEARXNG_DEFAULT_RESULTS` | Default result count | `10` |
 | `SEARXNG_TIMEOUT` | Request timeout (seconds) | `10` |
+
+### Connecting to the MCP Server
+
+For external MCP clients, connect to:
+
+```
+http://localhost:3002/sse
+```
+
+For Claude Desktop integration, add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "searxng": {
+      "url": "http://localhost:3002/sse"
+    }
+  }
+}
+```
 
 ### Manual Configuration
 
