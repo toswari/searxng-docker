@@ -1,0 +1,82 @@
+# SearXNG configuration with JSON output enabled
+use_default_settings: true
+
+server:
+  port: 8080
+  bind_address: "0.0.0.0"
+  secret_key: "changeme123456789012345678901234567890"
+
+search:
+  safe_search: 0
+  autocomplete: ""
+  default_timeout: 10
+  formats:
+    - html
+    - json
+    - csv
+    - rss
+
+ui:
+  default_theme: simple
+
+# Engine configuration - disable problematic engines
+engines:
+  # Working engines with rate limiting
+  - name: google
+    engine: google
+    shortcut: go
+    disabled: false
+    time_between_searches: 2.0
+
+  - name: bing
+    engine: bing
+    shortcut: bi
+    disabled: false
+    time_between_searches: 2.0
+
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+    disabled: false
+    time_between_searches: 2.0
+
+  - name: brave
+    engine: brave
+    shortcut: brave
+    disabled: false
+    time_between_searches: 5.0
+
+  - name: wikipedia
+    engine: wikipedia
+    shortcut: wp
+    disabled: false
+
+  - name: github
+    engine: github
+    shortcut: gh
+    disabled: false
+
+  - name: arxiv
+    engine: arxiv
+    shortcut: arx
+    disabled: false
+
+  # Disabled engines due to errors/rate limiting
+  - name: stackoverflow
+    disabled: true
+  - name: ahmia
+    disabled: true
+  - name: torch
+    disabled: true
+  - name: wikidata
+    disabled: true
+  - name: karmasearch
+    disabled: true
+  - name: yahoo news
+    disabled: true
+  - name: brave news
+    disabled: true
+  - name: brave images
+    disabled: true
+  - name: brave videos
+    disabled: true

@@ -1,4 +1,3 @@
-# SearXNG Docker
 
 A Docker-based deployment of [SearXNG](https://github.com/searxng/searxng), a privacy-respecting, hackable metasearch engine.
 
@@ -153,14 +152,31 @@ docker-compose restart
 
 The following engines are enabled by default:
 
-- Google
-- Bing
-- DuckDuckGo
-- Brave
-- Wikipedia
-- GitHub
-- StackOverflow
-- arXiv
+| Engine | Shortcut | Rate Limit Protection |
+|--------|----------|----------------------|
+| Google | `go` | 2s delay between searches |
+| Bing | `bi` | 2s delay between searches |
+| DuckDuckGo | `ddg` | 2s delay between searches |
+| Brave | `brave` | 5s delay between searches |
+| Wikipedia | `wp` | - |
+| GitHub | `gh` | - |
+| arXiv | `arx` | - |
+
+### Disabled Engines
+
+The following engines are disabled due to various issues:
+
+| Engine | Reason |
+|--------|--------|
+| StackOverflow | `stackoverflow.py` not found in SearXNG installation |
+| ahmia | Engine loading failed |
+| torch | Engine loading failed |
+| wikidata | Init method fails with KeyError: 'name' |
+| KarmaSearch | HTTP 403 Forbidden (requires API key or has IP restrictions) |
+| Yahoo News | Server frequently disconnects |
+| Brave News/Images/Videos | Rate limiting (429 errors) |
+
+> **Note:** You may see ERROR logs for disabled engines (ahmia, torch, wikidata) during startup. These are expected and confirm the engines are being properly disabled rather than causing silent failures.
 
 ## Security
 

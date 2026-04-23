@@ -1,0 +1,840 @@
+{
+    "query": "docker",
+    "number_of_results": 71,
+    "results": [
+        {
+            "url": "https://www.docker.com/products/docker-desktop/",
+            "title": "Docker Desktop: The #1 Containerization Tool for Developers | Docker",
+            "content": "Docker Desktop is a powerful platform for building, running, and managing containers on your local machine. It integrates with your development tools, supports Kubernetes, offers extensions, and enhances security and performance.",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "www.docker.com",
+                "/products/docker-desktop/",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "duckduckgo",
+                "startpage"
+            ],
+            "positions": [
+                4,
+                2,
+                1
+            ],
+            "score": 5.25,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://www.docker.com/",
+            "title": "Docker: Accelerated Container Application Development",
+            "content": "Docker is a platform designed to help developers build, share, and run container applications. We handle the tedious setup, so you can focus on the code.AI \u00b7 Products \u00b7 Pricing \u00b7 Support",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "www.docker.com",
+                "/",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "startpage"
+            ],
+            "positions": [
+                1,
+                1
+            ],
+            "score": 4.0,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://en.wikipedia.org/wiki/Docker_(software)",
+            "title": "Docker (software) - Wikipedia",
+            "content": "Docker (software) ... Former logo Docker is a set of products that uses operating system-level virtualization to deliver software in packages called containers. Docker automates the deployment of applications within lightweight containers, enabling them to run consistently across different computing environments.",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "en.wikipedia.org",
+                "/wiki/Docker_(software)",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "duckduckgo",
+                "startpage"
+            ],
+            "positions": [
+                2,
+                3,
+                3
+            ],
+            "score": 3.5,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://aws.amazon.com/docker/",
+            "title": "What is Docker? | AWS",
+            "content": "Docker lets you build, test, and deploy applications quickly using containers that have everything the software needs to run. Learn how to use Docker on AWS with various services and tools, and see examples of Docker use cases and FAQs.",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "aws.amazon.com",
+                "/docker/",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "duckduckgo",
+                "startpage"
+            ],
+            "positions": [
+                8,
+                10,
+                6
+            ],
+            "score": 1.175,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://hub.docker.com/",
+            "title": "Docker Hub Container Image Library | App Containerization",
+            "content": "Use Docker's enterprise-grade base images: secure, stable, and backed by SLAs for Ubuntu, Debian, Java, and more. Regularly scanned and maintained with CVE\u00a0...",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "hub.docker.com",
+                "/",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "startpage"
+            ],
+            "positions": [
+                3,
+                4
+            ],
+            "score": 1.1666666666666665,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://github.com/docker",
+            "title": "Docker - GitHub",
+            "content": "Docker helps developers build, share, run, and verify applications anywhere \u2014 without tedious environment configuration or management. This GitHub organization is home to many of the open source tools that power the Docker experience. Whether you're using Docker for local development, CI automation, or building secure software supply chains \u2014 we're glad you're here.",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "github.com",
+                "/docker",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "duckduckgo",
+                "startpage"
+            ],
+            "positions": [
+                9,
+                8,
+                10
+            ],
+            "score": 1.0083333333333333,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://en.wikipedia.org/wiki/Docker",
+            "title": "Docker",
+            "content": "Topics referred to by the same term",
+            "engine": "wikipedia",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "en.wikipedia.org",
+                "/wiki/Docker",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "wikipedia"
+            ],
+            "positions": [
+                1
+            ],
+            "score": 1.0,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://stackoverflow.com/questions/79817033/sudden-docker-error-about-client-api-version",
+            "title": "Sudden Docker error about \"client API version\" - Stack Overflow",
+            "content": "Nov 11, 2025 \u00b7 Docker doesn\u2019t always keep the client-server API versions in perfect sync, so if the daemon jumps to something like 1.44 and your TestContainers setup is still locked on 1.32, it just \u2026",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/79817033/sudden-docker-error-about-client-api-version",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                1
+            ],
+            "score": 1.0,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://docs.docker.com/get-started/get-docker/",
+            "title": "Get Docker",
+            "content": "Docker allows you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in ...",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "docs.docker.com",
+                "/get-started/get-docker/",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "startpage"
+            ],
+            "positions": [
+                5,
+                6
+            ],
+            "score": 0.7333333333333334,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://www.reddit.com/r/docker/",
+            "title": "r/docker - Reddit",
+            "content": "r/docker: Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application. The same\u2026",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "www.reddit.com",
+                "/r/docker/",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "startpage"
+            ],
+            "positions": [
+                6,
+                5
+            ],
+            "score": 0.7333333333333334,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://docs.docker.com/",
+            "title": "Docker Docs",
+            "content": "Docker Documentation is the official Docker library of resources, manuals, and guides to help you containerize applications.",
+            "thumbnail": "",
+            "engine": "google",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "docs.docker.com",
+                "/",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "priority": "",
+            "engines": [
+                "google",
+                "startpage"
+            ],
+            "positions": [
+                7,
+                7
+            ],
+            "score": 0.5714285714285714,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://stackoverflow.com/questions/30172605/how-do-i-get-a-console-like-connection-into-a-docker-containers-shell",
+            "title": "How do I get a console-like connection into a Docker container's shell?",
+            "content": "Here are some related resources: openssh-server doesn't start in Docker container How can I get Bash or ssh into a running container in background mode? Can you run GUI applications in a Linux Docker \u2026",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/30172605/how-do-i-get-a-console-like-connection-into-a-docker-containers-shell",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                2
+            ],
+            "score": 0.5,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "template": "default.html",
+            "title": "Docker Desktop - Download and install on Windows | Microsoft Store",
+            "content": "Docker Desktop is a one-click-install application for your Mac, Linux, or Windows environment, enabling you to build, share, and run containerized applications and microservices. With its straightforward graphical user interface (GUI), Docker Desktop lets you manage your containers, applications, and images directly from your machine, simplifying the development process. By automating port ...",
+            "img_src": "",
+            "iframe_src": "",
+            "audio_src": "",
+            "thumbnail": "",
+            "publishedDate": null,
+            "pubdate": "",
+            "length": null,
+            "views": "",
+            "author": "",
+            "metadata": "",
+            "priority": "",
+            "engines": [
+                "duckduckgo"
+            ],
+            "open_group": false,
+            "close_group": false,
+            "positions": [
+                2
+            ],
+            "score": 0.5,
+            "category": "general",
+            "url": "https://apps.microsoft.com/detail/xp8cbj40xlbwkx",
+            "engine": "duckduckgo",
+            "parsed_url": [
+                "https",
+                "apps.microsoft.com",
+                "/detail/xp8cbj40xlbwkx",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "url": "https://stackoverflow.com/questions/72167566/wsl-docker-curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certi",
+            "title": "WSL-Docker: curl: (60) SSL certificate problem: unable to get local ...",
+            "content": "May 9, 2022 \u00b7 WSL-Docker: curl: (60) SSL certificate problem: unable to get local issuer certificate Asked 3 years, 11 months ago Modified 10 months ago Viewed 41k times",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/72167566/wsl-docker-curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certi",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                3
+            ],
+            "score": 0.3333333333333333,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://stackoverflow.com/questions/25267372/correct-way-to-detach-from-a-container-without-stopping-it",
+            "title": "docker - Correct way to detach from a container without stopping it ...",
+            "content": "In Docker 1.1.2 (latest), what's the correct way to detach from a container without stopping it? So for example, if I try: docker run -i -t foo /bin/bash or docker attach foo (for already running",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/25267372/correct-way-to-detach-from-a-container-without-stopping-it",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                4
+            ],
+            "score": 0.25,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "template": "default.html",
+            "title": "Docker for Beginners: Everything You Need to Know",
+            "content": "Docker is a complete solution for the production, distribution, and use of containers. Modern Docker releases are comprised of several independent components. First, there's the Docker CLI, which is what you interact with in your terminal. The CLI sends commands to a Docker daemon. This can run locally or on a remote host.",
+            "img_src": "",
+            "iframe_src": "",
+            "audio_src": "",
+            "thumbnail": "",
+            "publishedDate": null,
+            "pubdate": "",
+            "length": null,
+            "views": "",
+            "author": "",
+            "metadata": "",
+            "priority": "",
+            "engines": [
+                "duckduckgo"
+            ],
+            "open_group": false,
+            "close_group": false,
+            "positions": [
+                4
+            ],
+            "score": 0.25,
+            "category": "general",
+            "url": "https://www.howtogeek.com/733522/docker-for-beginners-everything-you-need-to-know/",
+            "engine": "duckduckgo",
+            "parsed_url": [
+                "https",
+                "www.howtogeek.com",
+                "/733522/docker-for-beginners-everything-you-need-to-know/",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "url": "https://stackoverflow.com/questions/30604846/docker-complains-about-no-space-left-on-device-how-to-clean-up",
+            "title": "Docker complains about \"no space left on device\", how to clean up?",
+            "content": "Note that non-dangling images can take up a significant amount of space over time. After the above excellent answer, check docker images and docker rmi as needed.",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/30604846/docker-complains-about-no-space-left-on-device-how-to-clean-up",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                5
+            ],
+            "score": 0.2,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "template": "default.html",
+            "title": "Docker Tutorial - GeeksforGeeks",
+            "content": "Docker is a tool that simplifies the process of developing, packaging, and deploying applications. It solves the \"works on my machine\" problem by ensuring code runs identically across environments. Docker allows you to build, package, and run applications inside containers Containers are lightweight piece of software that contains all the code, libraries, and dependencies that the ...",
+            "img_src": "",
+            "iframe_src": "",
+            "audio_src": "",
+            "thumbnail": "",
+            "publishedDate": null,
+            "pubdate": "",
+            "length": null,
+            "views": "",
+            "author": "",
+            "metadata": "",
+            "priority": "",
+            "engines": [
+                "duckduckgo"
+            ],
+            "open_group": false,
+            "close_group": false,
+            "positions": [
+                5
+            ],
+            "score": 0.2,
+            "category": "general",
+            "url": "https://www.geeksforgeeks.org/devops/docker-tutorial/",
+            "engine": "duckduckgo",
+            "parsed_url": [
+                "https",
+                "www.geeksforgeeks.org",
+                "/devops/docker-tutorial/",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "url": "https://stackoverflow.com/questions/45023363/what-is-docker-io-in-relation-to-docker-ce-and-docker-ee-now-called-mirantis-k",
+            "title": "What is docker.io in relation to docker-ce and docker-ee (now called ...",
+            "content": "Jul 11, 2017 \u00b7 253 Previously, to install Docker, I would use apt-get install docker.io However, I have recently noticed the documentation for installing docker, and it uses docker-ce. I have tried to find the \u2026",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/45023363/what-is-docker-io-in-relation-to-docker-ce-and-docker-ee-now-called-mirantis-k",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                6
+            ],
+            "score": 0.16666666666666666,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://stackoverflow.com/questions/66514436/difference-between-docker-compose-and-docker-compose",
+            "title": "Difference between \"docker compose\" and \"docker-compose\"",
+            "content": "Mar 7, 2021 \u00b7 The docker compose (with a space) is a newer project to migrate compose to Go with the rest of the docker project. This is the v2 branch of the docker/compose repo. It's been first introduced \u2026",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/66514436/difference-between-docker-compose-and-docker-compose",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                7
+            ],
+            "score": 0.14285714285714285,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "template": "default.html",
+            "title": "Docker Tutorial",
+            "content": "Docker is an open-source platform that enables developers to package and run applications in containers. This tutorial covers Docker's features, advantages, use cases, and career opportunities.",
+            "img_src": "",
+            "iframe_src": "",
+            "audio_src": "",
+            "thumbnail": "",
+            "publishedDate": null,
+            "pubdate": "",
+            "length": null,
+            "views": "",
+            "author": "",
+            "metadata": "",
+            "priority": "",
+            "engines": [
+                "duckduckgo"
+            ],
+            "open_group": false,
+            "close_group": false,
+            "positions": [
+                7
+            ],
+            "score": 0.14285714285714285,
+            "category": "general",
+            "url": "https://www.tutorialspoint.com/docker/index.htm",
+            "engine": "duckduckgo",
+            "parsed_url": [
+                "https",
+                "www.tutorialspoint.com",
+                "/docker/index.htm",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "url": "https://stackoverflow.com/questions/18497688/run-a-docker-image-as-a-container",
+            "title": "Run a Docker image as a container - Stack Overflow",
+            "content": "Aug 28, 2013 \u00b7 After building a Docker image from a dockerfile, I see the image was built successfully, but what do I do with it? Shouldn't i be able to run it as a container?",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/18497688/run-a-docker-image-as-a-container",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                8
+            ],
+            "score": 0.125,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "template": "default.html",
+            "title": "Docker for Beginners: A Practical Guide to Containers - DataCamp",
+            "content": "Learn how to install, use, and manage Docker containers with hands-on examples. This tutorial covers the essentials of containerization, images, Docker Hub, and more.",
+            "img_src": "",
+            "iframe_src": "",
+            "audio_src": "",
+            "thumbnail": "",
+            "publishedDate": null,
+            "pubdate": "",
+            "length": null,
+            "views": "",
+            "author": "",
+            "metadata": "",
+            "priority": "",
+            "engines": [
+                "duckduckgo"
+            ],
+            "open_group": false,
+            "close_group": false,
+            "positions": [
+                8
+            ],
+            "score": 0.125,
+            "category": "general",
+            "url": "https://www.datacamp.com/tutorial/docker-tutorial",
+            "engine": "duckduckgo",
+            "parsed_url": [
+                "https",
+                "www.datacamp.com",
+                "/tutorial/docker-tutorial",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "url": "https://stackoverflow.com/questions/43181654/locating-data-volumes-in-docker-desktop-windows",
+            "title": "Locating data volumes in Docker Desktop (Windows)",
+            "content": "Apr 3, 2017 \u00b7 I'm trying to learn docker at the moment and I'm getting confused about where data volumes actually exist. I'm using Docker Desktop for Windows. (Windows 10) In the docs they say \u2026",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/43181654/locating-data-volumes-in-docker-desktop-windows",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                9
+            ],
+            "score": 0.1111111111111111,
+            "category": "general",
+            "publishedDate": null
+        },
+        {
+            "url": "https://labs.play-with-docker.com/",
+            "title": "Play with Docker",
+            "content": "",
+            "publishedDate": null,
+            "engine": "startpage",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "labs.play-with-docker.com",
+                "/",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "startpage"
+            ],
+            "positions": [
+                9
+            ],
+            "score": 0.1111111111111111,
+            "category": "general"
+        },
+        {
+            "template": "default.html",
+            "title": "The Only Docker Guide You'll Ever Need (Beginner to Expert)",
+            "content": "Docker lets you package your app with everything it needs \u2014 code, libraries, system tools \u2014 into a single, portable unit called a container. That container can run anywhere: your laptop, your teammate's laptop, a server, or the cloud and it'll work exactly the same.",
+            "img_src": "",
+            "iframe_src": "",
+            "audio_src": "",
+            "thumbnail": "",
+            "publishedDate": null,
+            "pubdate": "",
+            "length": null,
+            "views": "",
+            "author": "",
+            "metadata": "",
+            "priority": "",
+            "engines": [
+                "duckduckgo"
+            ],
+            "open_group": false,
+            "close_group": false,
+            "positions": [
+                9
+            ],
+            "score": 0.1111111111111111,
+            "category": "general",
+            "url": "https://dev.to/dev_tips/the-only-docker-guide-youll-ever-need-beginner-to-expert-1bca",
+            "engine": "duckduckgo",
+            "parsed_url": [
+                "https",
+                "dev.to",
+                "/dev_tips/the-only-docker-guide-youll-ever-need-beginner-to-expert-1bca",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "url": "https://stackoverflow.com/questions/37471929/how-to-fix-a-container-stuck-in-an-endless-restart-loop",
+            "title": "docker - How to fix a container stuck in an endless restart loop ...",
+            "content": "You can also run a fresh container in the foreground with docker run -ti <your_wiki_image> to see what that does. You may need to map some config from your docker-compose yml to the docker \u2026",
+            "engine": "bing",
+            "template": "default.html",
+            "parsed_url": [
+                "https",
+                "stackoverflow.com",
+                "/questions/37471929/how-to-fix-a-container-stuck-in-an-endless-restart-loop",
+                "",
+                "",
+                ""
+            ],
+            "img_src": "",
+            "thumbnail": "",
+            "priority": "",
+            "engines": [
+                "bing"
+            ],
+            "positions": [
+                10
+            ],
+            "score": 0.1,
+            "category": "general",
+            "publishedDate": null
+        }
+    ],
+    "answers": [],
+    "corrections": [],
+    "infoboxes": [],
+    "suggestions": [
+        "Docker Hub",
+        "Docker Desktop - download",
+        "Docker documentation",
+        "Docker Desktop for Windows",
+        "Docker containers",
+        "Docker download"
+    ],
+    "unresponsive_engines": [
+        [
+            "brave",
+            "Suspended: too many requests"
+        ],
+        [
+            "karmasearch",
+            "Suspended: access denied"
+        ],
+        [
+            "karmasearch videos",
+            "Suspended: access denied"
+        ]
+    ]
+}
