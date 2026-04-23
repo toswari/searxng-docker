@@ -1,0 +1,20 @@
+{
+  "name": "mcp-searxng-server",
+  "version": "1.0.0",
+  "description": "MCP server for SearXNG metasearch engine",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "mcp-searxng-server": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["mcp", "searxng", "search", "metasearch"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

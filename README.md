@@ -85,9 +85,102 @@ This repository includes helper scripts for querying the API:
 python query_searxng.py "your search query"
 ```
 
+## MCP Server for AI Agents
+
+This repository includes an MCP (Model Context Protocol) server that allows AI agents to search the web using SearXNG.
+
+### Installing the MCP Server
+
+```bash
+./mcp-searxng-server/install-mcp-server.sh
+```
+
+This will:
+1. Install Node.js dependencies
+2. Configure Claude Desktop to use the MCP server
+
+### MCP Server Structure
+
+```
+mcp-searxng-server/
+├── package.json                    # Node.js dependencies
+├── index.js                        # MCP server implementation
+└── install-mcp-server.sh           # Installation script
+```
+
+### Available Tools
+
+| Tool | Description |
+|------|-------------|
+| `searxng_search` | Full search with category and engine options |
+| `searxng_search_simple` | Quick formatted search results |
+| `searxng_news` | Search news articles |
+| `searxng_images` | Search images |
+| `searxng_videos` | Search videos |
+| `searxng_engines` | List available search engines |
+| `searxng_info` | Get SearXNG instance info |
+
+### Example Tool Usage
+
+```json
+// Search for news
+{
+  "name": "searxng_news",
+  "arguments": {
+    "query": "AI developments 2026",
+    "limit": 5
+  }
+}
+
+// Search with specific engines
+{
+  "name": "searxng_search",
+  "arguments": {
+    "query": "docker tutorial",
+    "limit": 10,
+    "engines": ["google", "bing"]
+  }
+}
+
+// Search images
+{
+  "name": "searxng_images",
+  "arguments": {
+    "query": "sunset beach",
+    "limit": 10
+  }
+}
+```
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `SEARXNG_BASE_URL` | SearXNG server URL | `http://localhost:8082` |
+| `SEARXNG_DEFAULT_RESULTS` | Default result count | `10` |
+| `SEARXNG_TIMEOUT` | Request timeout (seconds) | `10` |
+
+### Manual Configuration
+
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "searxng": {
+      "command": "node",
+      "args": ["/path/to/mcp-searxng-server/index.js"],
+      "env": {
+        "SEARXNG_BASE_URL": "http://localhost:8082"
+      }
+    }
+  }
+}
+```
+
 ## OpenClaw Skill
 
-This repository includes an [OpenClaw skill](https://github.com/modelcontextprotocol/servers) for searching the web via SearXNG.
+This repository also includes an [OpenClaw skill](https://github.com/modelcontextprotocol/servers) for searching the web via SearXNG.
 
 ### Installing the Skill
 
