@@ -1,6 +1,9 @@
 # Use official SearXNG image
 FROM searxng/searxng:latest
 
+# Copy custom settings
+COPY searxng/settings.yml /etc/searxng/settings.yml
+
 # Copy custom entrypoint script
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
