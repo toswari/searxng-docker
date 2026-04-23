@@ -352,6 +352,18 @@ docker-compose down
 docker-compose up -d
 ```
 
+## Lessons Learned
+
+A comprehensive lessons learned document is available in [LESSONS_LEARNED.md](LESSONS_LEARNED.md) covering:
+
+- **Engine Selection:** Which engines work reliably and which to avoid
+- **Rate Limiting:** Configuration to prevent 429 errors and IP bans
+- **Docker Entrypoint:** Using granian ASGI server correctly
+- **MCP Server Development:** Tool patterns and error handling
+- **Common Errors:** Complete troubleshooting tables with solutions
+- **AI Agent Integration:** Query formats and best practices
+- **Installation Checklist:** Step-by-step deployment guide
+
 ## License
 
 SearXNG is licensed under the GNU Affero General Public License v3.0.
