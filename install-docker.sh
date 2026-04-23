@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Docker Installation Script for SearXNG
-# This script installs Docker and Docker Compose, then starts the SearXNG service
+# Docker Installation Script for SearXNG with MCP Server
+# This script installs Docker and Docker Compose, then starts the SearXNG service with MCP server
 
 set -e
 
@@ -90,17 +90,90 @@ echo "Verifying Docker installation..."
 docker --version
 docker compose version
 
-# Pull and start SearXNG
-echo "Pulling SearXNG image..."
-docker compose pull
+# Pull and start SearXNG with MCP server
+echo "Building SearXNG image with MCP server..."
+docker compose build
 
-echo "Starting SearXNG service..."
+echo "Starting SearXNG service with MCP server..."
 docker compose up -d
 
 echo ""
-echo "=== Installation Complete ==="
+echo "=== Docker Installation Complete ==="
 echo "SearXNG is now running on http://localhost:8082"
+echo "MCP server is running inside the container on port 8081"
 echo ""
 echo "To check the status: docker compose ps"
 echo "To view logs: docker compose logs -f"
 echo "To stop: docker compose down"
+
+# Install MCP server for Claude Desktop integration
+echo ""
+echo "=== Installing MCP Server for Claude Desktop ==="
+
+# Check if Node.js is installed
+if ! command -v node &> /dev/null; then
+    echo "Installing Node.js..."
+    if [ "$PKG_MANAGER" = "brew" ]; then
+        brew install node
+    elif [ "$PKG_MANAGER" = "apt-get" ]; then
+        curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+        apt-get install -y nodejs
+    elif [ "$PKG_MANAGER" = "yum" ] || [ "$PKG_MANAGER" = "dnf" ]; then
+        curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
+        yum install -y nodejs
+    elif [ "$PKG_MANAGER" = "pacman" ]; then
+        pacman -Syu --noconfirm nodejs npm
+    fi
+fi
+
+# Install MCP server dependencies
+echo "Installing MCP server dependencies..."
+cd "$(dirname "$0")/mcp-searxng-server"
+npm install --production
+
+# Configure Claude Desktop
+echo ""
+echo "Configuring Claude Desktop for MCP server..."
+
+CLAUDE_CONFIG_DIR=""
+if [ "$OS" = "macos" ]; then
+    CLAUDE_CONFIG_DIR="$HOME/Library/Application Support/Claude"
+elif [ "$OS" = "linux" ]; then
+    CLAUDE_CONFIG_DIR="$HOME/.config/Claude"
+fi
+
+if [ -n "$CLAUDE_CONFIG_DIR" ]; then
+    mkdir -p "$CLAUDE_CONFIG_DIR"
+    
+    MCP_SERVER_PATH="$(cd "$(dirname "$0")/mcp-searxng-server" && pwd)"
+    SEARXNG_URL="http://localhost:8082"
+    
+    cat > "$CLAUDE_CONFIG_DIR/claude_desktop_config.json" << EOF
+{
+  "mcpServers": {
+    "searxng": {
+      "command": "node",
+      "args": ["$MCP_SERVER_PATH/index.js"],
+      "env": {
+        "SEARXNG_BASE_URL": "$SEARXNG_URL",
+        "SEARXNG_DEFAULT_RESULTS": "10",
+        "SEARXNG_TIMEOUT": "10"
+      }
+    }
+  }
+}
+EOF
+    
+    echo "Claude Desktop configuration created at: $CLAUDE_CONFIG_DIR/claude_desktop_config.json"
+    echo ""
+    echo "=== MCP Server Installation Complete ==="
+    echo "Restart Claude Desktop to use the MCP server"
+else
+    echo "Could not find Claude Desktop config directory."
+    echo "Manual configuration may be required."
+fi
+
+echo ""
+echo "=== All Installation Complete ==="
+echo "SearXNG web interface: http://localhost:8082"
+echo "MCP server: Available in Claude Desktop after restart"
