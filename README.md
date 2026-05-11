@@ -10,7 +10,7 @@ This setup runs SearXNG in a Docker container with pre-configured search engines
 | Container Port | Host Port | Description |
 |----------------|-----------|-------------|
 | 8080           | 8082      | SearXNG web interface and API |
-| 3000           | 3002      | MCP server for AI agents |
+| 3000 (internal)| 3002      | MCP server for AI agents (SSE transport) |
 
 **Access the web interface at:** `http://localhost:8082`
 
@@ -97,7 +97,7 @@ This repository includes test scripts for validating the SearXNG and MCP server 
 Test the SearXNG search functionality with various queries:
 
 ```bash
-# Run from outside Docker (connects to exposed port)
+# Run from outside Docker (connects to exposed port 8082)
 ./mcp-searxng-server/test-searxng.sh
 
 # Custom host/port
@@ -116,22 +116,29 @@ SEARXNG_HOST=localhost SEARXNG_PORT=8082 ./mcp-searxng-server/test-searxng.sh
 
 ### MCP Server Tests
 
-Test the MCP server health and endpoints:
+Test the MCP server health, SSE transport, and full MCP protocol communication:
 
 ```bash
-# Run from outside Docker (connects to exposed port)
+# Run from outside Docker (connects to exposed port 3002)
 ./mcp-searxng-server/test-mcp.sh
 
-# Custom host/port
-MCP_HOST=localhost MCP_PORT=3002 ./mcp-searxng-server/test-mcp.sh
+# Custom host/port/SearXNG URL
+MCP_HOST=localhost MCP_PORT=3002 SEARXNG_BASE_URL=http://localhost:8082 ./mcp-searxng-server/test-mcp.sh
 ```
 
 **Tests included:**
-- Health endpoint check
-- SSE endpoint connection
-- MCP resources availability
-- MCP tools availability
-- Error handling
+- Health endpoint check (`GET /health`)
+- SSE endpoint connection (`GET /sse`) — verifies HTTP 200 and `text/event-stream` content-type
+- MCP protocol via curl — tests `/messages` endpoint rejection without/with invalid session
+- MCP protocol via Node.js SDK — full `listTools`, `listResources`, `callTool(searxng_info)`, `callTool(searxng_search)` tests
+- Server configuration verification
+- SearXNG connectivity check (localhost:8082)
+- Error handling (malformed JSON, large payloads)
+
+**Prerequisites:**
+- MCP server running on port 3002
+- Node.js installed (for SDK-based tests)
+- MCP SDK installed (`npm install` in `mcp-searxng-server/`)
 
 ## MCP Server for AI Agents
 
